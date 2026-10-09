@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Gestione Magazzino</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Principale -->
+  <header class="app-header">
+    <div class="header-top">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+        <div>
+          <h1 class="app-title">Magazzino & Scorte</h1>
+          <span class="offline-badge">
+            <span class="pulse-dot"></span> 100% Offline
+          </span>
+        </div>
+      </div>
+      <button id="btnNewItem" class="btn-primary-sm" title="Aggiungi nuovo articolo">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        <span>Nuovo</span>
+      </button>
+    </div>
+
+    <!-- Barra di Ricerca -->
+    <div class="search-box-container">
+      <div class="search-input-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Cerca per articolo o ubicazione..." autocomplete="off">
+        <button id="btnClearSearch" class="btn-clear-search hidden">&times;</button>
+      </div>
+    </div>
+
+    <!-- Schede di Navigazione -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="tab-locations">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span>Giacenze</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-summary">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="20" x2="18" y2="10"></line>
+          <line x1="12" y1="20" x2="12" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+        <span>Totali Articoli</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-manage">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+        <span>Dati & Excel</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Contenitore Principale -->
+  <main class="main-content">
+    <!-- TAB 1: GIACENZE PER UBICAZIONE -->
+    <section id="tab-locations" class="tab-content active">
+      <!-- Filtro rapido per Ubicazione (chips) -->
+      <div class="location-chips" id="locationChips">
+        <!-- Generato via JS -->
+      </div>
+
+      <!-- Statistiche veloci barra superiore -->
+      <div class="stats-summary-bar">
+        <span id="counterFiltered">11 posizioni visualizzate</span>
+        <span id="totalPiecesFiltered">Totale pezzi: 0</span>
+      </div>
+
+      <!-- Lista Card Articoli -->
+      <div class="items-list" id="itemsList">
+        <!-- Generato via JS -->
+      </div>
+    </section>
+
+    <!-- TAB 2: RIEPILOGO TOTALI PER ARTICOLO -->
+    <section id="tab-summary" class="tab-content">
+      <div class="summary-header">
+        <h2>Riepilogo Totale per Articolo</h2>
+        <p class="summary-subtitle">Somma aggregata di tutte le giacenze tra armadi e magazzini</p>
+      </div>
+      <div class="summary-list" id="summaryList">
+        <!-- Generato via JS -->
+      </div>
+    </section>
+
+    <!-- TAB 3: GESTIONE DATI & BACKUP -->
+    <section id="tab-manage" class="tab-content">
+      <div class="manage-card">
+        <h3>Esporta / Backup Excel</h3>
+        <p>Scarica i dati aggiornati del magazzino in formato CSV (apribile direttamente in Microsoft Excel).</p>
+        <button id="btnExportCsv" class="btn-action btn-export">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Esporta in CSV per Excel
+        </button>
+      </div>
+
+      <div class="manage-card">
+        <h3>Importa File Dati</h3>
+        <p>Importa un file CSV esportato in precedenza o un aggiornamento da PC.</p>
+        <label class="btn-action btn-import">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          Carica File CSV
+          <input type="file" id="fileImportInput" accept=".csv,text/csv" style="display:none;">
+        </label>
+      </div>
+
+      <div class="manage-card danger-zone">
+        <h3>Ripristino Dati Iniziali</h3>
+        <p>Ripristina i dati iniziali del foglio Excel originale annullando le modifiche non salvate.</p>
+        <button id="btnResetData" class="btn-action btn-danger">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="1 4 1 10 7 10"></polyline>
+            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+          </svg>
+          Ripristina Dati Iniziali
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL: AGGIUNGI / MODIFICA ARTICOLO -->
+  <div id="itemModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="modalTitle">Modifica Articolo</h2>
+        <button id="btnModalClose" class="btn-close-modal">&times;</button>
+      </div>
+      <form id="itemForm" class="modal-body">
+        <input type="hidden" id="formItemId">
+        
+        <div class="form-group">
+          <label for="formDesc">Descrizione Articolo *</label>
+          <input type="text" id="formDesc" required placeholder="Es. MOZZARELLA FIORDILATTE 1KG">
+        </div>
+
+        <div class="form-group">
+          <label for="formLocation">Ubicazione / Scaffale *</label>
+          <input type="text" id="formLocation" required placeholder="Es. ARMADIO D3, MAGAZZINO...">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="formBoxes">Cartoni (CT)</label>
+            <input type="number" id="formBoxes" min="0" value="0">
+          </div>
+          <div class="form-group">
+            <label for="formUnits">Pezzi Sfusi (PZ)</label>
+            <input type="number" id="formUnits" min="0" value="0">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="formMultiplier">Pezzi per Cartone</label>
+            <input type="number" id="formMultiplier" min="1" value="1" title="Quanti pezzi contiene 1 cartone">
+            <small class="form-hint">Es: 12 per cassa, 30 per mozzarella</small>
+          </div>
+          <div class="form-group">
+            <label for="formUom">Unità / Confezione</label>
+            <input type="text" id="formUom" placeholder="Es. bottiglie, kg, lattine">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="formNotes">Note sulla confezione</label>
+          <input type="text" id="formNotes" placeholder="Es. 1 CT = 12 bottiglie">
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="btnModalDelete" class="btn-modal-delete hidden">Elimina</button>
+          <div class="modal-actions-right">
+            <button type="button" id="btnModalCancel" class="btn-modal-cancel">Annulla</button>
+            <button type="submit" class="btn-modal-save">Salva</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICHE -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

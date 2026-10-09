@@ -1,0 +1,123 @@
+[
+  {
+    "id": 1,
+    "descrizione": "SALE",
+    "ubicazione": "ARMADIO D1",
+    "cartoni": 2,
+    "pezzi": 3,
+    "totalePezzi": 5,
+    "pezziPerCartone": 1,
+    "unitaMisura": "sacco da 25kg",
+    "note": "1 CT = 1 sacco da 25kg"
+  },
+  {
+    "id": 2,
+    "descrizione": "FARINA TIPO 00 - 25KG",
+    "ubicazione": "ARMADIO D2",
+    "cartoni": 1,
+    "pezzi": 0,
+    "totalePezzi": 1,
+    "pezziPerCartone": 1,
+    "unitaMisura": "sacco da 25kg",
+    "note": "1 CT = 1 sacco da 25kg"
+  },
+  {
+    "id": 3,
+    "descrizione": "MOZZARELLA FIORDILATTE 1KG",
+    "ubicazione": "ARMADIO D3",
+    "cartoni": 3,
+    "pezzi": 2,
+    "totalePezzi": 92,
+    "pezziPerCartone": 30,
+    "unitaMisura": "pezzi da 1kg",
+    "note": "1 CT = 30 pezzi da 1kg"
+  },
+  {
+    "id": 4,
+    "descrizione": "MOZZARELLA FIORDILATTE 1KG",
+    "ubicazione": "ARMADIO D4",
+    "cartoni": 2,
+    "pezzi": 5,
+    "totalePezzi": 25,
+    "pezziPerCartone": 10,
+    "unitaMisura": "pezzi da 1kg",
+    "note": "1 CT = 10 pezzi da 1kg"
+  },
+  {
+    "id": 5,
+    "descrizione": "PELATI SAN MARZANO DOP 400G",
+    "ubicazione": "CASETTA 1",
+    "cartoni": 5,
+    "pezzi": 6,
+    "totalePezzi": 66,
+    "pezziPerCartone": 12,
+    "unitaMisura": "lattine",
+    "note": "1 CT = 12 lattine"
+  },
+  {
+    "id": 6,
+    "descrizione": "ACQUA NATURALE 1L - 12PZ",
+    "ubicazione": "ANIMAZIONE",
+    "cartoni": 8,
+    "pezzi": 4,
+    "totalePezzi": 100,
+    "pezziPerCartone": 12,
+    "unitaMisura": "bottiglie",
+    "note": "1 CT = 12 bottiglie"
+  },
+  {
+    "id": 7,
+    "descrizione": "CHIANTI CLASSICO DOCG",
+    "ubicazione": "MAGAZZINO D3",
+    "cartoni": 2,
+    "pezzi": 0,
+    "totalePezzi": 12,
+    "pezziPerCartone": 6,
+    "unitaMisura": "bottiglie",
+    "note": "1 CT = 6 bottiglie"
+  },
+  {
+    "id": 8,
+    "descrizione": "CHIANTI CLASSICO DOCG",
+    "ubicazione": "MAGAZZINO D4",
+    "cartoni": 0,
+    "pezzi": 3,
+    "totalePezzi": 3,
+    "pezziPerCartone": 6,
+    "unitaMisura": "bottiglie",
+    "note": "1 CT = 6 bottiglie"
+  },
+  {
+    "id": 9,
+    "descrizione": "PATATE",
+    "ubicazione": "ARMADIO D2",
+    "cartoni": 2,
+    "pezzi": 2,
+    "totalePezzi": 14,
+    "pezziPerCartone": 6,
+    "unitaMisura": "sacchi",
+    "note": "1 CT = 6 sacchi"
+  },
+  {
+    "id": 10,
+    "descrizione": "PATATE",
+    "ubicazione": "ANIMAZIONE",
+    "cartoni": 4,
+    "pezzi": 1,
+    "totalePezzi": 25,
+    "pezziPerCartone": 6,
+    "unitaMisura": "sacchi",
+    "note": "1 CT = 6 sacchi"
+  },
+  {
+    "id": 11,
+    "descrizione": "FORCHETTE",
+    "ubicazione": "MAGAZZINO GENERALE",
+    "cartoni": 0,
+    "pezzi": 0,
+    "totalePezzi": 0,
+    "pezziPerCartone": 1,
+    "unitaMisura": "confezioni",
+    "note": "1 CT = 1 confezione"
+  }
+]
